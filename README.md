@@ -1,30 +1,31 @@
-# V. Murphy Art Studio — Rebuild
+# V. Murphy Art Studio — corrected build
 
-This version intentionally restores the design direction from the earlier multi-page site and keeps the later business content.
+This site was created by restoring the exact `v-murphy-art-studio-expanded.zip` version that existed immediately before the user's numbered instructions, then applying only those numbered changes.
 
-## What was preserved / restored
-- Original V. Murphy Art Studio logo in the header
-- Full desktop navigation menu + mobile Menu button
-- Three-painting fading homepage hero
-- No large opaque/translucent box covering the homepage paintings
-- Warm parchment / cream / deep blue visual identity
-- Transparent text areas over imagery rather than boxed cards
-- Separate internal pages and detailed business subsections
-- Story page with both V. Murphy photographs at modest size
-- "The Next Chapter" section
-- Original Collection clearly separated from Studio Editions
-- Print, framing, canvas, download, stationery, Studio Edition and trade pricing
-- Legal terms draft
-- Working manual-order configurator
+## Applied changes
+1. Added both V. Murphy photographs and the revised Story script.
+2. Added realistic suggested launch prices to all commercial routes.
+3. Applied prices to relevant pages and services.
+4. Added detailed business subsection pages.
+5. Cropped the photographed mount/frame edges from the three supplied artwork photos while retaining the paintings.
+6. Kept V. Murphy photographs modest in size on the Story page.
+7. Added The Next Chapter.
+8. Added Terms & Licensing covering downloads, commercial licences and Private Studio Editions.
+9. Replaced the simple Studio Edition brief builder with a more detailed manual-order enquiry form.
+10. Added fuller options and faint professional internet-sourced presentation imagery to detailed business pages.
 
-## GitHub upload
-Upload ALL files from this folder directly into the root of the existing GitHub repository.
-Replace existing files when GitHub asks.
+## Baseline design preserved
+- Original logo from the pre-instruction version
+- Full desktop menu and mobile menu
+- Three-image fading homepage
+- Existing typography, colour scheme, transparent content treatment and internal-page visual style
+- Existing Original Collection / Studio Editions brand separation
 
-## Before public launch
-1. Replace `YOUR-EMAIL@example.com` in `contact.html` and `script.js`.
-2. Add real Etsy / checkout links when ready.
-3. Replace `the-square-reference.jpg` with a clean photograph before selling that artwork.
-4. Verify final pricing against the chosen print / framing supplier.
-5. Have the legal page reviewed professionally before taking commercial orders.
-6. Internet lifestyle imagery is decorative reference material only. The actual products should use V. Murphy artwork or clearly identified Studio Editions.
+## Upload to GitHub
+Upload all website files directly to the root of the repository.
+Do not upload the `_baseline_before_numbered_instructions` folder; it is included only as a local rollback reference.
+
+## Before launch
+Replace `YOUR-EMAIL@example.com` in `contact.html` and `script.js`.
+Confirm fulfilment costs before locking prices.
+Have `legal.html` reviewed by a qualified UK solicitor.
