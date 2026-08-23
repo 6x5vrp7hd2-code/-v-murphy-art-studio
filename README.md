@@ -1,28 +1,30 @@
-# V. Murphy Art Studio — expanded multi-page site
+# V. Murphy Art Studio — Rebuild
 
-Upload every file in this folder directly to the root of the GitHub repository.
+This version intentionally restores the design direction from the earlier multi-page site and keeps the later business content.
 
-Pages:
-- index.html — rotating front page using three supplied paintings
-- story.html — truthful family story and finite archive
-- collection.html — original V. Murphy collection
-- shop.html — prints, 10 frame styles, canvas, downloads, limited editions, personalisation, sets and paper goods
-- create.html — guided Studio Edition brief builder
-- trade.html — hospitality, interiors, corporate and image licensing
-- faq.html
-- contact.html
+## What was preserved / restored
+- Original V. Murphy Art Studio logo in the header
+- Full desktop navigation menu + mobile Menu button
+- Three-painting fading homepage hero
+- No large opaque/translucent box covering the homepage paintings
+- Warm parchment / cream / deep blue visual identity
+- Transparent text areas over imagery rather than boxed cards
+- Separate internal pages and detailed business subsections
+- Story page with both V. Murphy photographs at modest size
+- "The Next Chapter" section
+- Original Collection clearly separated from Studio Editions
+- Print, framing, canvas, download, stationery, Studio Edition and trade pricing
+- Legal terms draft
+- Working manual-order configurator
 
-Important brand rule:
-Only works actually painted by V. Murphy belong to the V. Murphy Original Collection.
-New digitally developed work belongs to V. Murphy Studio Editions and is identified separately.
+## GitHub upload
+Upload ALL files from this folder directly into the root of the existing GitHub repository.
+Replace existing files when GitHub asks.
 
-The "Create Your Own" page is intentionally a brief builder rather than automatic AI generation. This lets you test demand before paying to automate the workflow.
-
-Before launch:
-1. Replace YOUR-EMAIL@example.com in contact.html.
-2. Add final Etsy/store links.
-3. Replace the phone screenshot used for The Square with a clean artwork photograph before selling it.
-4. Proof physical prints.
-5. Prepare customer terms for Studio Editions, private editions, downloads and licensing.
-
-Internal decorative background photography is loaded faintly and only in selected page areas from Unsplash image URLs. Your mother's paintings and logo are local files in the repository.
+## Before public launch
+1. Replace `YOUR-EMAIL@example.com` in `contact.html` and `script.js`.
+2. Add real Etsy / checkout links when ready.
+3. Replace `the-square-reference.jpg` with a clean photograph before selling that artwork.
+4. Verify final pricing against the chosen print / framing supplier.
+5. Have the legal page reviewed professionally before taking commercial orders.
+6. Internet lifestyle imagery is decorative reference material only. The actual products should use V. Murphy artwork or clearly identified Studio Editions.
