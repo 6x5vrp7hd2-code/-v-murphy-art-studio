@@ -1,23 +1,11 @@
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
-menuButton?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
-});
-document.querySelectorAll('.nav a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuButton?.setAttribute('aria-expanded', 'false');
-}));
 
-const modal = document.getElementById('artModal');
-const modalImage = document.getElementById('modalImage');
-document.querySelectorAll('[data-modal-src]').forEach(button => {
-  button.addEventListener('click', () => {
-    modalImage.src = button.dataset.modalSrc;
-    modalImage.alt = button.dataset.modalAlt || 'Artwork enlarged';
-    modal?.showModal();
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
   });
-});
-document.querySelector('[data-close-modal]')?.addEventListener('click', () => modal?.close());
-modal?.addEventListener('click', (event) => { if (event.target === modal) modal.close(); });
-document.getElementById('year').textContent = new Date().getFullYear();
+}
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
