@@ -853,3 +853,92 @@ body:not(.home-page) .internal-hero-copy h1{
     max-width:calc(100% - 40px) !important;
   }
 }
+
+
+/* ============================================================
+   HOMEPAGE LOGO VISIBILITY FIX ONLY
+   Previous !important declarations prevented the image itself
+   from completing its animation. The existing seal is unchanged;
+   only the animation is moved to wrapper elements.
+   ============================================================ */
+
+/* Keep the exact seal artwork itself fully rendered. */
+.hero-seal{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  transform:none !important;
+  filter:none !important;
+  animation:none !important;
+}
+
+/* Seal wrapper: starts small/faint, slowly reaches full size,
+   then remains permanently. */
+.hero-seal-stage{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:290px;
+  height:290px;
+  opacity:.08;
+  transform:scale(.28);
+  filter:brightness(.55);
+  animation:vmSealStageReveal 6.5s cubic-bezier(.16,.76,.22,1) forwards;
+}
+
+@keyframes vmSealStageReveal{
+  0%{
+    opacity:.08;
+    transform:scale(.28);
+    filter:brightness(.55);
+  }
+  45%{
+    opacity:.30;
+    transform:scale(.56);
+    filter:brightness(.70);
+  }
+  78%{
+    opacity:.74;
+    transform:scale(.88);
+    filter:brightness(.90);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+    filter:brightness(1);
+  }
+}
+
+/* Existing ART STUDIO element is forced to its normal visual state.
+   Its wrapper remains invisible until AFTER the seal is fully complete. */
+.hero-art-studio{
+  opacity:1 !important;
+  transform:none !important;
+  animation:none !important;
+}
+
+.hero-art-studio-stage{
+  opacity:0;
+  transform:translateY(8px);
+  animation:vmArtStudioStageReveal 2.8s ease forwards;
+  animation-delay:6.65s;
+}
+
+@keyframes vmArtStudioStageReveal{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:920px){
+  .hero-seal-stage{
+    width:235px;
+    height:235px;
+  }
+}
+
+@media(max-width:620px){
+  .hero-seal-stage{
+    width:205px;
+    height:205px;
+  }
+}
