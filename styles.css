@@ -556,3 +556,130 @@ body{
     font-size:2.5rem;
   }
 }
+
+
+/* ============================================================
+   CORRECTION — exact homepage phasing requested
+   ============================================================ */
+
+/* HOME PAGE: no VM seal in the top-left corner.
+   Internal pages retain the new seal top-left exactly as requested. */
+.homepage-header-no-seal{
+  justify-content:flex-end !important;
+}
+.homepage-header-no-seal .brand,
+.homepage-header-no-seal .seal-brand{
+  display:none !important;
+}
+
+/* Slower single-run seal reveal:
+   small + faint -> full size + brightness -> stays permanently */
+.hero-seal{
+  opacity:.08 !important;
+  transform:scale(.28) !important;
+  filter:brightness(.55) !important;
+  animation:vmSealRevealSlow 5.5s cubic-bezier(.16,.76,.22,1) forwards !important;
+}
+
+/* ART STUDIO remains completely invisible until AFTER seal is finished.
+   Then it fades in slowly and stays permanently. */
+.hero-art-studio{
+  opacity:0 !important;
+  transform:translateY(8px) !important;
+  animation:artStudioRevealSlow 2.6s ease forwards !important;
+  animation-delay:5.65s !important;
+}
+
+@keyframes vmSealRevealSlow{
+  0%{
+    opacity:.08;
+    transform:scale(.28);
+    filter:brightness(.55);
+  }
+  45%{
+    opacity:.34;
+    transform:scale(.58);
+    filter:brightness(.72);
+  }
+  78%{
+    opacity:.76;
+    transform:scale(.88);
+    filter:brightness(.92);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+    filter:brightness(1);
+  }
+}
+
+@keyframes artStudioRevealSlow{
+  0%{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+
+/* ============================================================
+   USER-SUPPLIED SEAL / COLOUR MATCH
+   Only the requested visual changes are applied here.
+   ============================================================ */
+
+:root {
+  --approved-navy:#233242;
+  --approved-navy-2:#233242;
+  --approved-navy-3:#233242;
+  --approved-cream:#e4dfc9;
+  --approved-cream-soft:#cfcab7;
+}
+
+/* Use the supplied image's background colour as the principal site colour. */
+html, body,
+.internal-page,
+.story-page,
+.collection-page,
+.shop-page,
+.create-page,
+.trade-page,
+.faq-page,
+.contact-page,
+.formats-page {
+  background:#233242 !important;
+}
+
+/* Keep all existing layouts. Replace gradients with the exact supplied main background colour. */
+.approved-hero-background,
+.warm-band,
+.configurator-section,
+.config-section,
+.editorial-strip,
+.frame-section,
+.licensing-section,
+.difference-band,
+.separation-band,
+.photo-to-art,
+.download-section,
+.text-over-art,
+.small-band,
+.site-footer {
+  background:#233242 !important;
+}
+
+/* Seal image now comes directly from the supplied reference,
+   preserving its exact VM typeform and interlocking letter arrangement. */
+.hero-seal,
+.seal-brand img {
+  object-fit:contain !important;
+  background:transparent !important;
+}
+
+/* Homepage must have NO top-left VM seal. */
+.homepage-header-no-seal .brand,
+.homepage-header-no-seal .seal-brand {
+  display:none !important;
+}
