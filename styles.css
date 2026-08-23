@@ -683,3 +683,173 @@ html, body,
 .homepage-header-no-seal .seal-brand {
   display:none !important;
 }
+
+
+/* ============================================================
+   CORRECTIONS — requested only
+   ============================================================ */
+
+/* HOME PAGE:
+   large centre seal visible; no top-left homepage seal. */
+.homepage-header-no-seal .brand,
+.homepage-header-no-seal .seal-brand{
+  display:none !important;
+}
+
+.hero-seal{
+  display:block !important;
+  visibility:visible !important;
+  width:290px !important;
+  height:290px !important;
+  object-fit:contain !important;
+
+  opacity:.08 !important;
+  transform:scale(.28) !important;
+  filter:brightness(.55) !important;
+
+  animation:vmSealRevealCorrected 6.5s cubic-bezier(.16,.76,.22,1) forwards !important;
+}
+
+@keyframes vmSealRevealCorrected{
+  0%{
+    opacity:.08;
+    transform:scale(.28);
+    filter:brightness(.55);
+  }
+  45%{
+    opacity:.30;
+    transform:scale(.56);
+    filter:brightness(.70);
+  }
+  78%{
+    opacity:.74;
+    transform:scale(.88);
+    filter:brightness(.90);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+    filter:brightness(1);
+  }
+}
+
+/* ART STUDIO begins only after the seal is fully in place. */
+.hero-art-studio{
+  opacity:0 !important;
+  transform:translateY(8px) !important;
+  animation:artStudioRevealCorrected 2.8s ease forwards !important;
+  animation-delay:6.65s !important;
+}
+
+@keyframes artStudioRevealCorrected{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Make the fading painting strip thinner. */
+.approved-art-band{
+  height:175px !important;
+  margin-top:10px !important;
+}
+
+/* Slow the three fading paintings substantially. */
+.art-band-slide{
+  animation-duration:42s !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+
+.art-band-one{animation-delay:0s !important}
+.art-band-two{animation-delay:14s !important}
+.art-band-three{animation-delay:28s !important}
+
+@keyframes vmArtworkFade{
+  0%{opacity:0;transform:scale(1.002)}
+  10%{opacity:1}
+  27%{opacity:1;transform:scale(1.015)}
+  37%{opacity:0}
+  100%{opacity:0}
+}
+
+/* INTERNAL PAGES:
+   reserve clear vertical space beneath the seal/menu so hero
+   heading, eyebrow and seal never overlap. */
+body:not(.home-page) .site-header.seal-header{
+  height:82px !important;
+}
+
+body:not(.home-page) .seal-brand,
+body:not(.home-page) .seal-brand img{
+  width:54px !important;
+  height:54px !important;
+  flex:0 0 54px !important;
+}
+
+body:not(.home-page) .page-hero,
+body:not(.home-page) .internal-hero{
+  padding-top:132px !important;
+}
+
+body:not(.home-page) .page-hero-copy,
+body:not(.home-page) .internal-hero-copy{
+  margin-top:58px !important;
+  margin-left:max(24px,7vw) !important;
+  max-width:min(860px,calc(100% - 48px)) !important;
+}
+
+body:not(.home-page) .page-hero-copy .eyebrow,
+body:not(.home-page) .internal-hero-copy .eyebrow{
+  margin-bottom:1.15rem !important;
+}
+
+body:not(.home-page) .page-hero-copy h1,
+body:not(.home-page) .internal-hero-copy h1{
+  margin-top:0 !important;
+  line-height:1.02 !important;
+}
+
+/* Mobile: additional collision protection. */
+@media(max-width:920px){
+  .approved-art-band{
+    height:160px !important;
+  }
+
+  body:not(.home-page) .page-hero,
+  body:not(.home-page) .internal-hero{
+    padding-top:120px !important;
+  }
+
+  body:not(.home-page) .page-hero-copy,
+  body:not(.home-page) .internal-hero-copy{
+    margin-top:46px !important;
+    margin-left:20px !important;
+    max-width:calc(100% - 40px) !important;
+  }
+}
+
+@media(max-width:620px){
+  .hero-seal{
+    width:205px !important;
+    height:205px !important;
+  }
+
+  .approved-art-band{
+    height:145px !important;
+  }
+
+  body:not(.home-page) .site-header.seal-header{
+    height:72px !important;
+  }
+
+  body:not(.home-page) .page-hero,
+  body:not(.home-page) .internal-hero{
+    padding-top:112px !important;
+  }
+
+  body:not(.home-page) .page-hero-copy,
+  body:not(.home-page) .internal-hero-copy{
+    margin-top:42px !important;
+    margin-left:20px !important;
+    max-width:calc(100% - 40px) !important;
+  }
+}
