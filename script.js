@@ -1,11 +1,7 @@
 
-const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-}
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
+const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
+if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});}
+const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
+const form=document.getElementById('art-configurator'),output=document.getElementById('brief-output'),briefText=document.getElementById('brief-text'),briefTitle=document.getElementById('brief-title');
+if(form&&output&&briefText){form.addEventListener('submit',e=>{e.preventDefault();const d=Object.fromEntries(new FormData(form).entries());briefTitle.textContent=`${d.mood} ${d.setting} — ${d.format} Studio Edition`;const extra=d.detail?.trim()?` Personal detail: ${d.detail.trim()}.`:'';briefText.textContent=`Create a ${d.format.toLowerCase()} ${d.finish.toLowerCase()} composition set in a ${d.setting.toLowerCase()}, with ${d.architecture.toLowerCase()} architecture in ${d.season.toLowerCase()} during the ${d.time.toLowerCase()}. Use a ${d.palette.toLowerCase()} palette, include ${d.features.toLowerCase()}, and show ${d.people.toLowerCase()}. The overall mood should feel ${d.mood.toLowerCase()}.${extra}`;output.hidden=false;output.scrollIntoView({behavior:'smooth',block:'center'});});}
+const copyBtn=document.getElementById('copy-brief');if(copyBtn&&briefText){copyBtn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(`${briefTitle.textContent}\n\n${briefText.textContent}`);copyBtn.textContent='Copied';setTimeout(()=>copyBtn.textContent='Copy brief',1500)}catch{copyBtn.textContent='Copy manually'}});}

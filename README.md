@@ -1,30 +1,28 @@
-# V. Murphy Art Studio — multi-page GitHub Pages site
+# V. Murphy Art Studio — expanded multi-page site
 
-This version fixes the header logo, splits the website into individual pages, adds a rotating three-artwork home hero, and adds separate print / framing / canvas / download information.
+Upload every file in this folder directly to the root of the GitHub repository.
 
-## Files
-- index.html
-- story.html
-- collection.html
-- formats.html
+Pages:
+- index.html — rotating front page using three supplied paintings
+- story.html — truthful family story and finite archive
+- collection.html — original V. Murphy collection
+- shop.html — prints, 10 frame styles, canvas, downloads, limited editions, personalisation, sets and paper goods
+- create.html — guided Studio Edition brief builder
+- trade.html — hospitality, interiors, corporate and image licensing
 - faq.html
 - contact.html
-- styles.css
-- script.js
-- logo.png
-- courtyard-cafe.jpeg
-- blue-awnings.jpeg
-- village-garden-2013.jpeg
-- the-square-reference.jpeg
-- red-composition.jpeg
 
-## Upload to GitHub
-Upload **all files directly into the repository root**. Replace the existing `index.html`, `styles.css`, `script.js` and `logo.png`.
+Important brand rule:
+Only works actually painted by V. Murphy belong to the V. Murphy Original Collection.
+New digitally developed work belongs to V. Murphy Studio Editions and is identified separately.
 
-GitHub Pages will rebuild automatically after the commit.
+The "Create Your Own" page is intentionally a brief builder rather than automatic AI generation. This lets you test demand before paying to automate the workflow.
 
-## Before launch
-1. Replace `YOUR-EMAIL@example.com` in `contact.html`.
-2. Replace the generic Etsy link in the footer when the shop is ready.
-3. The Square is still based on a phone screenshot and should be replaced with a clean photograph before print launch.
-4. External background photographs are hot-linked from Unsplash and are deliberately used faintly / partially on internal pages.
+Before launch:
+1. Replace YOUR-EMAIL@example.com in contact.html.
+2. Add final Etsy/store links.
+3. Replace the phone screenshot used for The Square with a clean artwork photograph before selling it.
+4. Proof physical prints.
+5. Prepare customer terms for Studio Editions, private editions, downloads and licensing.
+
+Internal decorative background photography is loaded faintly and only in selected page areas from Unsplash image URLs. Your mother's paintings and logo are local files in the repository.
