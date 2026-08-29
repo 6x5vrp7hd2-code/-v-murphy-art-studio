@@ -16,6 +16,15 @@ if (orderForm && orderOutput && orderText) {
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(orderForm).entries());
+    
+    fetch('https://hook.eu1.make.com/tcoy5404c2hoefagh5q3mhxqb75yoay9', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+          },
+      body: JSON.stringify(d)
+        });
+    
     const brief = `V. MURPHY ART STUDIO — STUDIO EDITION ENQUIRY
 
 Customer: ${d.customer}
