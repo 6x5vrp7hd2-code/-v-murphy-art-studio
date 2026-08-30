@@ -3,8 +3,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css"></head><body>
-<header class="site-header">
-  <a class="brand" href="index.html"><img src="logo.png" alt="V. Murphy Art Studio logo"><span>V. Murphy Art Studio</span></a>
+<header class="site-header seal-header">
+  <a class="brand seal-brand" href="index.html" aria-label="V. Murphy Art Studio home">
+    <img src="vm-seal.png" alt="VM seal">
+  </a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
   <nav class="nav">
     <a href="story.html">Story</a><a href="collection.html">Collection</a><a href="shop.html">Shop</a>
@@ -29,19 +31,78 @@
     <p class="pricing-note"><strong>Private Edition:</strong> add £75. The final approved composition is not intentionally released into the standard Studio Editions catalogue. See the legal terms for the limits of digital exclusivity.</p>
 
     <style>
-      /* Create Your Own page only — scoped so no other page/site styling is changed */
-      #studio-order-form .choice-section{grid-column:1/-1;border:1px solid rgba(18,50,55,.18);border-radius:14px;padding:0;margin:8px 0;background:rgba(255,255,255,.34);overflow:hidden}
-      #studio-order-form .choice-section>summary{cursor:pointer;list-style:none;padding:18px 20px;font-family:"Cormorant Garamond",serif;font-size:1.35rem;font-weight:600;color:#173b3c;display:flex;align-items:center;justify-content:space-between;gap:16px}
+      /* Create Your Own page only — no other site/page styles are changed */
+      #studio-order-form{--vm-ink:#173b3c;--vm-navy:#1c3142;--vm-cream:#f4edda;--vm-paper:#f8f4ea;--vm-gold:#b69b65}
+      #studio-order-form .choice-section{
+        --accent:#8ca6a6;
+        grid-column:1/-1;
+        border:1px solid color-mix(in srgb,var(--accent) 34%,rgba(18,50,55,.16));
+        border-radius:18px;
+        padding:0;
+        margin:10px 0;
+        background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 14%,#f7f3e9),rgba(255,255,255,.76));
+        box-shadow:0 8px 24px rgba(8,31,42,.07);
+        overflow:hidden;
+        position:relative;
+      }
+      #studio-order-form .choice-section::before{
+        content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--accent);opacity:.9
+      }
+      #studio-order-form .choice-section:nth-of-type(1){--accent:#a47772}
+      #studio-order-form .choice-section:nth-of-type(2){--accent:#728f82}
+      #studio-order-form .choice-section:nth-of-type(3){--accent:#b48b58}
+      #studio-order-form .choice-section:nth-of-type(4){--accent:#6b879d}
+      #studio-order-form .choice-section:nth-of-type(5){--accent:#9a718c}
+      #studio-order-form .choice-section:nth-of-type(6){--accent:#7e8062}
+      #studio-order-form .choice-section:nth-of-type(7){--accent:#8c6676}
+      #studio-order-form .choice-section:nth-of-type(8){--accent:#a47b54}
+      #studio-order-form .choice-section:nth-of-type(9){--accent:#6d8a88}
+      #studio-order-form .choice-section:nth-of-type(10){--accent:#7a7695}
+      #studio-order-form .choice-section:nth-of-type(11){--accent:#9a8864}
+      #studio-order-form .choice-section:nth-of-type(12){--accent:#6e8790}
+      #studio-order-form .choice-section:nth-of-type(13){--accent:#8a7565}
+      #studio-order-form .choice-section:nth-of-type(14){--accent:#6f8c78}
+      #studio-order-form .choice-section>summary{
+        cursor:pointer;list-style:none;padding:19px 22px 19px 25px;
+        font-family:"Cormorant Garamond",serif;font-size:1.35rem;font-weight:600;color:var(--vm-ink);
+        display:flex;align-items:center;justify-content:space-between;gap:16px;letter-spacing:.01em
+      }
       #studio-order-form .choice-section>summary::-webkit-details-marker{display:none}
-      #studio-order-form .choice-section>summary::after{content:"+";font-family:"Libre Franklin",sans-serif;font-size:1.15rem;font-weight:400}
+      #studio-order-form .choice-section>summary::after{
+        content:"+";font-family:"Libre Franklin",sans-serif;font-size:1.05rem;font-weight:500;
+        width:30px;height:30px;display:grid;place-items:center;border-radius:50%;
+        color:var(--vm-ink);background:color-mix(in srgb,var(--accent) 22%,#fff);border:1px solid color-mix(in srgb,var(--accent) 45%,#fff);
+        flex:0 0 30px
+      }
+      #studio-order-form .choice-section[open]>summary{border-bottom:1px solid color-mix(in srgb,var(--accent) 28%,rgba(18,50,55,.12));background:rgba(255,255,255,.26)}
       #studio-order-form .choice-section[open]>summary::after{content:"−"}
-      #studio-order-form .choice-section-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:0 20px 20px}
+      #studio-order-form .choice-section-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:22px 22px 24px 25px}
       #studio-order-form .choice-section-grid .full{grid-column:1/-1}
-      #studio-order-form .choice-subhead{grid-column:1/-1;margin:2px 0 -5px;font-family:"Libre Franklin",sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#56706e}
-      #studio-order-form .customer-details{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px}
-      #studio-order-form .customer-details h3{grid-column:1/-1;margin:12px 0 0}
+      #studio-order-form .choice-subhead{grid-column:1/-1;margin:4px 0 -3px;font-family:"Libre Franklin",sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#55706e}
+      #studio-order-form .choice-section label{display:grid;gap:8px}
+      #studio-order-form .choice-section label>span{font-family:"Libre Franklin",sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#4c6564}
+      #studio-order-form .choice-section select,
+      #studio-order-form .choice-section input[type="url"],
+      #studio-order-form .choice-section textarea{
+        width:100%;box-sizing:border-box;border:1px solid rgba(23,59,60,.22);border-radius:12px;
+        background:rgba(255,255,255,.82);color:#203d3d;padding:13px 14px;
+        font:400 .96rem/1.35 "Libre Franklin",sans-serif;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 3px 10px rgba(13,42,50,.04)
+      }
+      #studio-order-form .choice-section select{min-height:48px;padding-right:40px}
+      #studio-order-form .choice-section textarea{min-height:132px;resize:vertical}
+      #studio-order-form .choice-section select:focus,
+      #studio-order-form .choice-section input:focus,
+      #studio-order-form .choice-section textarea:focus{outline:2px solid color-mix(in srgb,var(--accent) 55%,transparent);outline-offset:2px;border-color:var(--accent)}
+      #studio-order-form .customer-details{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:16px;padding:22px;border:1px solid rgba(244,237,218,.18);border-radius:18px;background:rgba(255,255,255,.055)}
+      #studio-order-form .customer-details h3{grid-column:1/-1;margin:0 0 4px;color:var(--vm-cream)}
       #studio-order-form .customer-details .full{grid-column:1/-1}
-      @media(max-width:720px){#studio-order-form .choice-section-grid,#studio-order-form .customer-details{grid-template-columns:1fr}#studio-order-form .choice-section-grid .full,#studio-order-form .customer-details .full{grid-column:1}}
+      @media(max-width:720px){
+        #studio-order-form .choice-section-grid,#studio-order-form .customer-details{grid-template-columns:1fr}
+        #studio-order-form .choice-section-grid .full,#studio-order-form .customer-details .full{grid-column:1}
+        #studio-order-form .choice-section>summary{font-size:1.28rem;padding:18px 18px 18px 22px}
+        #studio-order-form .choice-section-grid{padding:20px 18px 22px 22px}
+      }
     </style>
 
     <form id="studio-order-form" class="configurator order-form">
