@@ -16,6 +16,20 @@ if (orderForm && orderOutput && orderText) {
   orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(orderForm).entries());
+
+    const webhookUrl = (window.VM_MAKE_WEBHOOK_URL || '').trim();
+    if (webhookUrl) {
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(d),
+        mode: 'cors',
+        keepalive: true
+      }).catch((err) => console.error('VM Make webhook failed:', err));
+    } else {
+      console.warn('VM Make webhook URL is not configured.');
+    }
+
     const brief = `V. MURPHY ART STUDIO — STUDIO EDITION ENQUIRY
 
 Customer: ${d.customer}

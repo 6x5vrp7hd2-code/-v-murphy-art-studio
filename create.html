@@ -148,6 +148,45 @@
 }
 </style>
 
+
+<style id="vm-dropdown-viewport-fix">
+/* Allow an open dropdown to escape the rounded choice card instead of being clipped. */
+#studio-order-form .choice-section[open]{
+  overflow:visible !important;
+  position:relative !important;
+  z-index:1;
+}
+#studio-order-form .choice-section[open]:has(.vm-select.open){
+  z-index:9000 !important;
+}
+#studio-order-form .vm-select.open{
+  position:relative !important;
+  z-index:9500 !important;
+}
+#studio-order-form .vm-select.open .vm-select-menu{
+  z-index:9999 !important;
+}
+
+/* iPhone / mobile: show the options as a viewport-anchored chooser.
+   This prevents lower fields such as Viewpoint and Intended Use being cut off. */
+@media(max-width:920px){
+  #studio-order-form .vm-select.open .vm-select-menu{
+    position:fixed !important;
+    left:16px !important;
+    right:16px !important;
+    top:auto !important;
+    bottom:max(16px, env(safe-area-inset-bottom)) !important;
+    width:auto !important;
+    max-height:min(62vh, 440px) !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    z-index:100000 !important;
+    border-radius:18px !important;
+    box-shadow:0 24px 70px rgba(8,30,40,.38) !important;
+  }
+}
+</style>
+
 </head><body class="create-page">
 <header class="site-header seal-header">
   <a class="brand seal-brand" href="index.html" aria-label="V. Murphy Art Studio home">
@@ -405,4 +444,5 @@
 })();
 </script>
 
+<script src="webhook-config.js"></script>
 <script src="script.js"></script></body></html>
